@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>530FD050-482C-4C49-97E0-D0C6D9C561E5</string>
+	<key>IDESourceControlProjectName</key>
+	<string>sdk</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>231E7AEF-A0ED-4F8D-B5C9-5CAE6306B888</key>
+		<string>ssh://stash.desktop.dev.yandex.net/cloud/disk-sdk-obj-c.git</string>
+		<key>FF3E98C0-17BE-48E7-AB38-550581FC55AF</key>
+		<string>https://github.com/robbiehanson/KissXML.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>sdk.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>231E7AEF-A0ED-4F8D-B5C9-5CAE6306B888</key>
+		<string>../..</string>
+		<key>FF3E98C0-17BE-48E7-AB38-550581FC55AF</key>
+		<string>../../KissXML</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>ssh://stash.desktop.dev.yandex.net/cloud/disk-sdk-obj-c.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>231E7AEF-A0ED-4F8D-B5C9-5CAE6306B888</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>231E7AEF-A0ED-4F8D-B5C9-5CAE6306B888</string>
+			<key>IDESourceControlWCCName</key>
+			<string>disk-sdk-obj-c</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>FF3E98C0-17BE-48E7-AB38-550581FC55AF</string>
+			<key>IDESourceControlWCCName</key>
+			<string>KissXML</string>
+		</dict>
+	</array>
+</dict>
+</plist>
