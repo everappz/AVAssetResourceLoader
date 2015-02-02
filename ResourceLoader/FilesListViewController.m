@@ -86,7 +86,7 @@
 
 - (void)viewDidLoad{
     [super viewDidLoad];
-    self.title = self.isCurrentPathRoot ? @"Яндекс Диск" : self.path.lastPathComponent;
+    self.title = self.isCurrentPathRoot ? @"Yandex.Disk" : self.path.lastPathComponent;
 }
 
 - (void)viewDidAppear:(BOOL)animated{
