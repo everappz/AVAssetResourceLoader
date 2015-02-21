@@ -9,6 +9,11 @@
 
 [**Evermusic Pro**](https://itunes.apple.com/us/app/evermusic-pro/id905746421?ls=1&mt=8)
 
+# Tutorial
+
+The full tutorial about how audio streaming was implemented in this sample project is available here:
+http://leshkoapps.com/wordpress/audio-streaming-and-caching-in-ios-using-avassetresourceloader-and-avplayer/
+
 # Contacts
  
  For additional information please contact: 
