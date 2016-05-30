@@ -12,7 +12,7 @@
 # Tutorial
 
 The full tutorial about how audio streaming was implemented in this sample project is available here:
-http://leshkoapps.com/wordpress/audio-streaming-and-caching-in-ios-using-avassetresourceloader-and-avplayer/
+http://everappz.com/index.php/2015/02/10/audio-streaming-and-caching-in-ios-using-avassetresourceloader-and-avplayer/
 
 # Contacts
  
