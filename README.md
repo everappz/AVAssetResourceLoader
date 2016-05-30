@@ -22,7 +22,7 @@ http://leshkoapps.com/wordpress/audio-streaming-and-caching-in-ios-using-avasset
  support@everappz.com
  
  
- http://everappz.com/support/
+ http://everappz.com/index.php/support/
  
 # License
 
