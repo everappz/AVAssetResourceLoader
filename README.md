@@ -19,10 +19,10 @@ http://leshkoapps.com/wordpress/audio-streaming-and-caching-in-ios-using-avasset
  For additional information please contact: 
  
 
- public.leshko@gmail.com
+ support@everappz.com
  
  
- http://leshkoapps.com/wordpress/support/
+ http://everappz.com/support/
  
 # License
 
