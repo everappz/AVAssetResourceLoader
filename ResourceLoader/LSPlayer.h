@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <AVFoundation/AVFoundation.h>
 
 typedef enum {
     LSPlayerStatusUnknown = -1,
@@ -46,6 +47,7 @@ extern NSString * const LSFileScheme;
 @property (nonatomic,readonly)NSTimeInterval currentTime;
 @property (nonatomic,assign)float timeObservingPrecision;
 @property (nonatomic,weak)id<LSPlayerDelegate>delegate;
+@property (nonatomic,readonly,strong)AVPlayer *player;
 
 - (void)fetchAndPlayFileAtURL:(NSURL *)fileURL session:(YDSession *)session;
 
@@ -64,6 +66,8 @@ extern NSString * const LSFileScheme;
 
 @protocol LSPlayerDelegate <NSObject>
 
+@optional
+
 - (void)player:(LSPlayer*)player didFailWithStatus:(LSPlayerFailedStatus)status error:(NSError *)error;
 - (void)player:(LSPlayer*)player didChangeReadyToPlayStatus:(LSPlayerReadyToPlayStatus)status;
 
@@ -75,6 +79,8 @@ extern NSString * const LSFileScheme;
 
 - (void)playerDidChangeScrubberTime:(LSPlayer*)player;
 - (void)playerDidChangeClockTime:(LSPlayer*)player;
+
+- (void)playerDidUpdateInternalPlayer:(LSPlayer*)player;
 
 @end
 

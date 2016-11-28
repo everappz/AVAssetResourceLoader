@@ -157,7 +157,7 @@
 - (void)viewDidLayoutSubviews{
     [super viewDidLayoutSubviews];
     
-    const CGFloat kPlayerViewHeight = 50.0;
+    const CGFloat kPlayerViewHeight = [self.playerViewController preferredContentSize].height;
     
     CGSize rootSize = self.view.bounds.size;
     

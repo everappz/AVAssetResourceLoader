@@ -11,6 +11,13 @@
 #import "LSPlaySliderView.h"
 #import "LSPlayer.h"
 #import "NSString+LSAdditions.h"
+#import <AVFoundation/AVFoundation.h>
+
+
+const CGFloat kPlayerControlsWidth = 40.0;
+const CGFloat kPlayerContentViewHeight = 150.0;
+const CGFloat kPlayerToolbarHeight = 50.0;
+
 
 @interface PlayerViewController ()<LSPlayerDelegate>{
     UIBarButtonItem *_playItem;
@@ -21,7 +28,9 @@
 @property (nonatomic, strong) LSPlayer *player;
 @property (nonatomic, weak) LSPlaySliderView *playSliderView;
 @property (nonatomic, weak) UIToolbar *playerControlsToolbar;
+@property (nonatomic, weak) UIView *playerContentView;
 @property (nonatomic, assign) BOOL restorePlayStateAfterScrubbing;
+@property (nonatomic, weak) AVPlayerLayer *avPlayerLayer;
 
 
 @end
@@ -45,7 +54,7 @@
 - (void)loadView{
     [super loadView];
     
-    self.view.backgroundColor = [UIColor groupTableViewBackgroundColor];
+    self.view.backgroundColor = [UIColor whiteColor];
     
     LSPlaySliderView *playSliderView = [[LSPlaySliderView alloc] init];
     [self.view addSubview:playSliderView];
@@ -57,8 +66,8 @@
     [slider addTarget:self action:@selector(endScrubbing:) forControlEvents:UIControlEventTouchUpInside];
     
     UIToolbar *tool = [[UIToolbar alloc] init];
+    [tool setBarStyle:UIBarStyleDefault];
     [tool setTranslucent:YES];
-    tool.opaque = YES;
     tool.backgroundColor = [UIColor clearColor];
     tool.clipsToBounds = YES;
     [tool setBackgroundImage:[[UIImage alloc] init] forToolbarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
@@ -66,6 +75,11 @@
     [self.view addSubview:tool];
     self.playerControlsToolbar = tool;
     
+    UIView * view = [[UIView alloc]  initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 0)];
+    view.backgroundColor = [UIColor whiteColor];
+    [view setAutoresizingMask:UIViewAutoresizingFlexibleWidth];
+    [self.view addSubview:view];
+    self.playerContentView = view;
     
     UIView *v = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 1.0/[[UIScreen mainScreen] scale])];
     v.backgroundColor = [UIColor grayColor];
@@ -78,15 +92,18 @@
     [self updatePlayerControls];
 }
 
+- (CGSize)preferredContentSize{
+    return CGSizeMake(320.0, kPlayerContentViewHeight+kPlayerToolbarHeight);
+}
+
 - (void)viewDidLayoutSubviews{
     [super viewDidLayoutSubviews];
     
-    const CGFloat kPlayerControlsWidth = 40.0;
-    
     CGSize rootSize = self.view.bounds.size;
     
-    [self.playerControlsToolbar setFrame:CGRectMake(0.0, 0.0, kPlayerControlsWidth, rootSize.height)];
-    [self.playSliderView setFrame:CGRectMake(CGRectGetMaxX(self.playerControlsToolbar.frame), 0, rootSize.width-CGRectGetMaxX(self.playerControlsToolbar.frame), rootSize.height)];
+    [self.playerContentView setFrame:CGRectMake(0, 0, rootSize.width, kPlayerContentViewHeight)];
+    [self.playerControlsToolbar setFrame:CGRectMake(0.0, CGRectGetMaxY(self.playerContentView.frame), kPlayerControlsWidth, kPlayerToolbarHeight)];
+    [self.playSliderView setFrame:CGRectMake(CGRectGetMaxX(self.playerControlsToolbar.frame), CGRectGetMaxY(self.playerContentView.frame), rootSize.width-CGRectGetMaxX(self.playerControlsToolbar.frame), kPlayerToolbarHeight)];
 }
 
 - (void)viewDidLoad {
@@ -154,6 +171,14 @@
     [self syncPlayClock];
     [self syncPreloadProgress];
     [self updatePlayerControls];
+}
+
+- (void)updatePlayerLayer{
+    [self.avPlayerLayer removeFromSuperlayer];
+    AVPlayerLayer *avPlayerLayer = [AVPlayerLayer playerLayerWithPlayer:self.player.player];
+    [avPlayerLayer setFrame:self.playerContentView.bounds];
+    [self.playerContentView.layer addSublayer:avPlayerLayer];
+    self.avPlayerLayer = avPlayerLayer;
 }
 
 - (void)actionPlay:(id)sender{
@@ -301,6 +326,10 @@
 
 - (void)playerDidChangeClockTime:(LSPlayer*)player{
     [self syncPlayClock];
+}
+
+- (void)playerDidUpdateInternalPlayer:(LSPlayer*)player{
+    [self updatePlayerLayer];
 }
 
 @end

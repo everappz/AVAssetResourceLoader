@@ -231,6 +231,14 @@ NSString * const LSFileScheme = @"customscheme";
     }];
 }
 
+- (void)notifyDidUpdateInternalPlayer{
+    [self performBlockOnMainThreadSync:^{
+        if([self.delegate respondsToSelector:@selector(playerDidUpdateInternalPlayer:)]){
+            [self.delegate playerDidUpdateInternalPlayer:self];
+        }
+    }];
+}
+
 #pragma mark - Player Observers
 
 - (void)startTimeObserving:(NSError **)error{
@@ -338,6 +346,7 @@ NSString * const LSFileScheme = @"customscheme";
 - (void)createPlayerWithItem:(AVPlayerItem *)playerItem{
     self.player = [AVPlayer playerWithPlayerItem:playerItem];
     [self addObserversForPlayer];
+    [self notifyDidUpdateInternalPlayer];
 }
 
 - (void)clearPlayer{
