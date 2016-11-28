@@ -15,7 +15,7 @@
 
 
 const CGFloat kPlayerControlsWidth = 40.0;
-const CGFloat kPlayerContentViewHeight = 150.0;
+const CGFloat kPlayerContentViewHeight = 200.0;
 const CGFloat kPlayerToolbarHeight = 50.0;
 
 
@@ -54,7 +54,7 @@ const CGFloat kPlayerToolbarHeight = 50.0;
 - (void)loadView{
     [super loadView];
     
-    self.view.backgroundColor = [UIColor whiteColor];
+
     
     LSPlaySliderView *playSliderView = [[LSPlaySliderView alloc] init];
     [self.view addSubview:playSliderView];
@@ -67,7 +67,6 @@ const CGFloat kPlayerToolbarHeight = 50.0;
     
     UIToolbar *tool = [[UIToolbar alloc] init];
     [tool setBarStyle:UIBarStyleDefault];
-    [tool setTranslucent:YES];
     tool.backgroundColor = [UIColor clearColor];
     tool.clipsToBounds = YES;
     [tool setBackgroundImage:[[UIImage alloc] init] forToolbarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
@@ -76,13 +75,13 @@ const CGFloat kPlayerToolbarHeight = 50.0;
     self.playerControlsToolbar = tool;
     
     UIView * view = [[UIView alloc]  initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 0)];
-    view.backgroundColor = [UIColor whiteColor];
+    view.backgroundColor = [UIColor darkGrayColor];
     [view setAutoresizingMask:UIViewAutoresizingFlexibleWidth];
     [self.view addSubview:view];
     self.playerContentView = view;
     
     UIView *v = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 1.0/[[UIScreen mainScreen] scale])];
-    v.backgroundColor = [UIColor grayColor];
+    v.backgroundColor = [UIColor whiteColor];
     v.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     [self.view addSubview:v];
 }

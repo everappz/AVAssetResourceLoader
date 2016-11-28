@@ -304,6 +304,8 @@
 				TargetAttributes = {
 					EF0F0A151A7CCADE002F5966 = {
 						CreatedOnToolsVersion = 6.1.1;
+						DevelopmentTeam = 2Z797QJNH7;
+						ProvisioningStyle = Manual;
 					};
 				};
 			};
@@ -485,6 +487,9 @@
 		EF0F0A3A1A7CCADE002F5966 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 2Z797QJNH7;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
@@ -497,6 +502,8 @@
 					"-all_load",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "8e057a03-1975-484b-9b3e-c9d88fe0f2fd";
+				PROVISIONING_PROFILE_SPECIFIER = "DEV_LS Wildcard";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -504,6 +511,9 @@
 		EF0F0A3B1A7CCADE002F5966 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 2Z797QJNH7;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
@@ -516,6 +526,8 @@
 					"-all_load",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "8e057a03-1975-484b-9b3e-c9d88fe0f2fd";
+				PROVISIONING_PROFILE_SPECIFIER = "DEV_LS Wildcard";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
